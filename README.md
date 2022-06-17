@@ -4,7 +4,6 @@
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | [<img src="https://eecs441.eecs.umich.edu/img/admin/grades3.png">][grade_sheet] | [<img src="https://eecs441.eecs.umich.edu/img/admin/team.png">][team_contract] | [<img src="https://eecs441.eecs.umich.edu/img/admin/video.png">][demo_page] | [<img src="https://eecs441.eecs.umich.edu/img/admin/wiki.png">][wiki_page] | [<img src="https://eecs441.eecs.umich.edu/img/admin/trello.png">][process_page] |
 
-![Elevator Pitch](/assets/441.jpeg)
 
 [grade_sheet]: https://docs.google.com/spreadsheets/d/1X3MaZ2m3UsdjcJARJQvdTjxElceTxeJx2uY92idq3xk/edit?usp=sharing
 [team_contract]: https://docs.google.com/document/d/1YL6lX2RmaLtHDfeRCVXXIFOjAGVMu9O5j3gxOPFHA2Y/edit?usp=sharing
@@ -22,7 +21,6 @@
 
 | Name                | Link                                                         |
 | ------------------- | ------------------------------------------------------------ |
-| Unity               | https://unity.com/                                           |
 | Unity AR Foundation | https://unity.com/unity/features/ar                          |
 | GoMap               | https://assetstore.unity.com/packages/tools/integration/go-map-3d-map-for-ar-gaming-68889 |
 | AR+GPS location     | https://assetstore.unity.com/packages/tools/integration/ar-gps-location-134882 |
