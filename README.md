@@ -13,7 +13,7 @@
 
 
 
-![pitch](pitch.png)
+![cover](cover.png)
 
 ### Getting Started
 
@@ -35,13 +35,17 @@
 
 #### Storymap
 
+The following pictures shows our story map.
 
+![story_map1](story_map1.png)
+
+![story_map2](story_map2.png)
 
 #### Block Diagram
 
 The following picture is our engine architecture.
 
-![Engine Architecture](Engine Architecture.jpg)
+![Engine_Architecture](Engine_Architecture.jpg)
 
 We use Unity as our game engine. The front end will provide three pieces of information to the engine: user location, the scene captured by the camera, and the voice input.
 
