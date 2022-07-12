@@ -20,4 +20,6 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('getlocs/', views.getlocs, name='getlocs'),
+    path('removeloc/', views.removeloc, name='removeloc'),
+    path('addloc/', views.addloc, name='addloc'),
 ]
