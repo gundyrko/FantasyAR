@@ -12,6 +12,7 @@ def getlocs(request):
     long_limit = 100 # range limit from user's location
     min_monster_num = 5 # minimum monster number
     max_monster_num = 10 # maximum monster number
+    num_type = 1 # number of monster types
 
     if request.method == 'POST':
         json_data = json.loads(request.body)
@@ -25,9 +26,11 @@ def getlocs(request):
         
         # Get monsters' info in the limit range
         chosen_monster = []
+        id_list = []
         for row in rows:
             monster_lat = float(row[1])
             monster_long = float(row[2])
+            id_list.append(int(row[0]))
             if abs(monster_lat - user_latitude) < lat_limit and abs(monster_long- user_longitude) < long_limit:
                 chosen_monster.append(row)
         
@@ -39,13 +42,21 @@ def getlocs(request):
             for i in range(new_monster_num):
                 new_monster = []
                 new_id = -1
-                new_lat = random.uniform(user_latitude - lat_limit, user_latitude + lat_limit)
-                new_long = random.uniform(user_longitude - long_limit, user_longitude + long_limit)
-                cursor.execute('INSERT INTO monsterloc (lat, long) VALUES '
-                               '(%s, %s);', (new_lat, new_long))
+                for i in range(65536):
+                    if i not in id_list:
+                        id_list.append(i)
+                        new_id = i
+                        break
+
+                new_lat = random.uniform(min(user_latitude - lat_limit, -90), max(user_latitude + lat_limit, 180))
+                new_long = random.uniform(min(user_longitude - long_limit, -180), max(user_longitude + long_limit, 180))
+                new_type = random.randint(0, num_type-1)
+                cursor.execute('INSERT INTO monsterloc (id, lat, long, type) VALUES '
+                               '(%s, %s, %s, %s);', (new_id, new_lat, new_long, new_type))
                 new_monster.append(new_id)
                 new_monster.append(new_lat)
                 new_monster.append(new_long)
+                new_monster.append(new_type)
                 chosen_monster.append(new_monster)
 
         response = {}
