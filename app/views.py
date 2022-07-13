@@ -8,8 +8,8 @@ import random
 # Create your views here.
 @csrf_exempt
 def getlocs(request):
-    lat_limit = 100 
-    long_limit = 100 # range limit from user's location
+    lat_limit = 0.0004 
+    long_limit = 0.0004 # range limit from user's location
     min_monster_num = 5 # minimum monster number
     max_monster_num = 10 # maximum monster number
     num_type = 1 # number of monster types
@@ -34,6 +34,10 @@ def getlocs(request):
             if abs(monster_lat - user_latitude) < lat_limit and abs(monster_long- user_longitude) < long_limit:
                 chosen_monster.append(row)
         
+        lat_lower_bound = max(user_latitude - lat_limit, -90)
+        lat_upper_bound = min(user_latitude + lat_limit, 90)
+        long_lower_bound = max(user_longitude - long_limit, -180)
+        long_upper_bound = min(user_longitude+ long_limit, 180)
         # Generate new monsters' info if needed
         num_monster = len(chosen_monster)
         new_monster_num = 0
@@ -48,8 +52,8 @@ def getlocs(request):
                         new_id = i
                         break
 
-                new_lat = random.uniform(min(user_latitude - lat_limit, -90), max(user_latitude + lat_limit, 180))
-                new_long = random.uniform(min(user_longitude - long_limit, -180), max(user_longitude + long_limit, 180))
+                new_lat = random.uniform(lat_lower_bound, lat_upper_bound)
+                new_long = random.uniform(long_lower_bound, long_upper_bound)
                 new_type = random.randint(0, num_type-1)
                 cursor.execute('INSERT INTO monsterloc (id, lat, long, type) VALUES '
                                '(%s, %s, %s, %s);', (new_id, new_lat, new_long, new_type))
@@ -66,6 +70,8 @@ def getlocs(request):
         response['userloc']['longitude'] = user_longitude
         response['num'] = len(chosen_monster)
         response['new_monster_num'] = new_monster_num
+        response['lower'] = lat_lower_bound
+        response['upper'] = lat_upper_bound
         return JsonResponse(response)
 
     elif request.method == 'GET':
