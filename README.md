@@ -118,11 +118,49 @@ This function is used to get the skills that the player has mastered.
 
 
 
-
-
 ### View UI/UX
 
+The overview of UI/UX. It includes four major parts: Start game and view map, AR battle, Practice mode and Change weapons and skills.
 
+![UI overview](D:\GitHub\FantasyAR\UI overview.png)
+
+#### Start game and view map
+
+![start and map](D:\GitHub\FantasyAR\start and map.png)
+
+In this flow, the player can start the game, view real-time 3D map and view monster locations on the map.
+
+#### AR battle
+
+![battle](D:\GitHub\FantasyAR\battle.png)
+
+In this flow, the player can shoot the monster, use skills by voice control, gain experience and coins after battle and quit battle.
+
+#### Pratice mode
+
+![practice](D:\GitHub\FantasyAR\practice.png)
+
+This flow is similar to the AR battle. The difference is that player should place a monster on a plane first and player do not gain experience and coins after battle.
+
+#### Change weapons and skills
+
+![store](D:\GitHub\FantasyAR\store.png)
+
+In this flow, the player can view status (level, coins), change weapons and skills.
+
+#### Final Design Justification
+
+![design change](D:\GitHub\FantasyAR\design change.png)
+
+The change is that we made the crosshair at the center of the battle scene less obvious and made the size of the shoot button larger with a bold border line.
+
+**Mockup Usability Test results**
+
+| Tasks                           | Evaluation Metrics | Evaluation Metrics(% success) |
+| ------------------------------- | ------------------ | ----------------------------- |
+| Shoot the monster for one time. | ≤ 5 seconds.       | 33                            |
+
+We only list the result of the major fault in the original design. No changes to other UI elements, because more than 80% of the participants did well in other tests. 
 
 ### Team Roster
 
@@ -153,7 +191,15 @@ Name: Zhongqian Duan
 
 Contribution:
 
+- Monster model / animation / moving AI
 
+- Skill effect (Fireball and icelance)
+
+- Gun system
+
+- Health and Damage system (partial participation, link damage to skill and gun)
+
+  
 
 Name: Yangdong Huang
 
