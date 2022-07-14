@@ -122,35 +122,35 @@ This function is used to get the skills that the player has mastered.
 
 The overview of UI/UX. It includes four major parts: Start game and view map, AR battle, Practice mode and Change weapons and skills.
 
-![UI overview](D:\GitHub\FantasyAR\UI overview.png)
+![UI overview](UI overview.png)
 
 #### Start game and view map
 
-![start and map](D:\GitHub\FantasyAR\start and map.png)
+![start and map](start and map.png)
 
 In this flow, the player can start the game, view real-time 3D map and view monster locations on the map.
 
 #### AR battle
 
-![battle](D:\GitHub\FantasyAR\battle.png)
+![battle](battle.png)
 
 In this flow, the player can shoot the monster, use skills by voice control, gain experience and coins after battle and quit battle.
 
 #### Pratice mode
 
-![practice](D:\GitHub\FantasyAR\practice.png)
+![practice](practice.png)
 
 This flow is similar to the AR battle. The difference is that player should place a monster on a plane first and player do not gain experience and coins after battle.
 
 #### Change weapons and skills
 
-![store](D:\GitHub\FantasyAR\store.png)
+![store](store.png)
 
 In this flow, the player can view status (level, coins), change weapons and skills.
 
 #### Final Design Justification
 
-![design change](D:\GitHub\FantasyAR\design change.png)
+![design change](design change.png)
 
 The change is that we made the crosshair at the center of the battle scene less obvious and made the size of the shoot button larger with a bold border line.
 
