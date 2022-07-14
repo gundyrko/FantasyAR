@@ -122,11 +122,11 @@ This function is used to get the skills that the player has mastered.
 
 The overview of UI/UX. It includes four major parts: Start game and view map, AR battle, Practice mode and Change weapons and skills.
 
-![UI overview](UI overview.png)
+![UI overview](UI_overview.png)
 
 #### Start game and view map
 
-![start and map](start and map.png)
+![start and map](start_and_map.png)
 
 In this flow, the player can start the game, view real-time 3D map and view monster locations on the map.
 
@@ -150,7 +150,7 @@ In this flow, the player can view status (level, coins), change weapons and skil
 
 #### Final Design Justification
 
-![design change](design change.png)
+![design change](design_change.png)
 
 The change is that we made the crosshair at the center of the battle scene less obvious and made the size of the shoot button larger with a bold border line.
 
