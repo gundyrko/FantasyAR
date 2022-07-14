@@ -126,11 +126,35 @@ This function is used to get the skills that the player has mastered.
 
 ### Team Roster
 
-| Name           | Contribution |
-| -------------- | ------------ |
-| Qihan Ren      |              |
-| Zesheng Yu     |              |
-| Yanjun Chen    |              |
-| Zhongqian Duan |              |
-| Yangdong Huang |              |
+Name: Qihan Ren
 
+Contribution:
+
+- Project manager
+- Voice control of skills
+- Place a monster on the plane (partial participation, mainly debugging the instantiation of the monster)
+- Monster moving AI (partial participation, mainly debugging the monster navigation system)
+
+
+
+Name: Zesheng Yu
+
+Contribution:
+
+
+
+Name: Yanjun Chen
+
+Contribution:
+
+
+
+Name: Zhongqian Duan
+
+Contribution:
+
+
+
+Name: Yangdong Huang
+
+Contribution:
