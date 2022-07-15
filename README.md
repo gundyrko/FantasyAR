@@ -187,7 +187,10 @@ Name: Yanjun Chen
 
 Contribution:
 
-
+- Process map api and 3D Map display
+- Place a monster on the plane
+- Communicate with back-end to place monster at specific places
+- Explore method to combine GPS and AR.
 
 Name: Zhongqian Duan
 
