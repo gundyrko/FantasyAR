@@ -181,6 +181,11 @@ Name: Zesheng Yu
 
 Contribution:
 
+- Set up the back-end server and the database for monsters' information
+- Implement the API for random generating reasonable monsters within the neighbor of user's location
+- Implement the API for removing monsters from database when the battling is ended
+- Communicate with front-end to place monster at specific places
+
 
 
 Name: Yanjun Chen
@@ -191,6 +196,8 @@ Contribution:
 - Place a monster on the plane
 - Communicate with back-end to place monster at specific places
 - Explore method to combine GPS and AR.
+
+
 
 Name: Zhongqian Duan
 
