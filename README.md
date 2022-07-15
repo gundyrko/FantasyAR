@@ -162,6 +162,8 @@ The change is that we made the crosshair at the center of the battle scene less 
 
 We only list the result of the major fault in the original design. No changes to other UI elements, because more than 80% of the participants did well in other tests. 
 
+For the complete results of usability testing, please see the [google slides](https://docs.google.com/presentation/d/1Lx3SiQz4-HtTHlB96S4Q2PONFLGE1FXCIjDZi7XFGIE/edit?usp=sharing) for details.
+
 ### Team Roster
 
 Name: Qihan Ren
