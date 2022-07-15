@@ -8,8 +8,10 @@ import random
 # Create your views here.
 @csrf_exempt
 def getlocs(request):
-    lat_limit = 0.0004 
+    lat_limit = 0.0004
     long_limit = 0.0004 # range limit from user's location
+    min_lat_limit = 0.000001
+    min_long_limit = 0.000001 # minimum difference
     min_monster_num = 5 # minimum monster number
     max_monster_num = 10 # maximum monster number
     num_type = 1 # number of monster types
@@ -52,9 +54,22 @@ def getlocs(request):
                         new_id = i
                         break
 
-                new_lat = random.uniform(lat_lower_bound, lat_upper_bound)
-                new_long = random.uniform(long_lower_bound, long_upper_bound)
                 new_type = random.randint(0, num_type-1)
+                new_lat = 0
+                new_long = 0
+                while True:
+                    well_placed = True
+                    new_lat = random.uniform(lat_lower_bound, lat_upper_bound)
+                    new_long = random.uniform(long_lower_bound, long_upper_bound)
+                    for monster in chosen_monster:
+                        if abs(new_lat - monster[1]) < min_lat_limit or abs(new_long - monster[2]) < min_long_limit:
+                            well_placed = False
+                            break
+                    
+                    if well_placed:
+                        break
+
+
                 cursor.execute('INSERT INTO monsterloc (id, lat, long, type) VALUES '
                                '(%s, %s, %s, %s);', (new_id, new_lat, new_long, new_type))
                 new_monster.append(new_id)
