@@ -8,10 +8,10 @@ import random
 # Create your views here.
 @csrf_exempt
 def getlocs(request):
-    lat_limit = 0.0004
-    long_limit = 0.0004 # range limit from user's location
-    min_lat_limit = 0.000001
-    min_long_limit = 0.000001 # minimum difference
+    lat_limit = 0.001
+    long_limit = 0.001 # range limit from user's location
+    min_lat_limit = 0.00001
+    min_long_limit = 0.00001 # minimum difference
     min_monster_num = 5 # minimum monster number
     max_monster_num = 10 # maximum monster number
     num_type = 1 # number of monster types
