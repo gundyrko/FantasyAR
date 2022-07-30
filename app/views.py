@@ -4,6 +4,7 @@ from django.db import connection
 from django.views.decorators.csrf import csrf_exempt
 import json
 import random
+import requests
 
 # Create your views here.
 @csrf_exempt
@@ -15,6 +16,8 @@ def getlocs(request):
     min_monster_num = 5 # minimum monster number
     max_monster_num = 10 # maximum monster number
     num_type = 1 # number of monster types
+
+    rep_ok = False
 
     if request.method == 'POST':
         json_data = json.loads(request.body)
@@ -66,6 +69,17 @@ def getlocs(request):
                             well_placed = False
                             break
                     
+                    # try to check whether underwater
+                    api_url = 'https://api.onwater.io/api/v1/results/{},{}access_token=tPm2DooQ3xao9yizzzVb'.format(new_lat, new_long)
+                    loc_info = requests.get(api_url)
+                    in_water = False
+                    if loc_info.ok:
+                        loc_info_json = json.loads(loc_info.data)
+                        if 'water' in loc_info_json:
+                            in_water = loc_info_json['water']
+                    if in_water:
+                        well_placed = False
+                    
                     if well_placed:
                         break
 
@@ -87,6 +101,8 @@ def getlocs(request):
         response['new_monster_num'] = new_monster_num
         response['lower'] = lat_lower_bound
         response['upper'] = lat_upper_bound
+        response['rep_ok'] = rep_ok
+        # response['rep_text'] = rep_text
         return JsonResponse(response)
 
     elif request.method == 'GET':
