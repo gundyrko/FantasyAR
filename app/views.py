@@ -51,16 +51,19 @@ def getlocs(request):
             for i in range(new_monster_num):
                 new_monster = []
                 new_id = -1
-                for i in range(65536):
-                    if i not in id_list:
-                        id_list.append(i)
-                        new_id = i
+                for j in range(65536):
+                    if j not in id_list:
+                        id_list.append(j)
+                        new_id = j
                         break
 
                 new_type = random.randint(0, num_type-1)
                 new_lat = 0
                 new_long = 0
-                while True:
+
+                max_time_out = 500
+                time_out = 0
+                while time_out < max_time_out:
                     well_placed = True
                     new_lat = random.uniform(lat_lower_bound, lat_upper_bound)
                     new_long = random.uniform(long_lower_bound, long_upper_bound)
@@ -82,6 +85,8 @@ def getlocs(request):
                     
                     if well_placed:
                         break
+
+                    time_out = time_out + 1
 
 
                 cursor.execute('INSERT INTO monsterloc (id, lat, long, type) VALUES '
@@ -122,11 +127,12 @@ def removeloc(request):
     if request.method != 'POST':
         return HttpResponse(status=404)
     json_data = json.loads(request.body)
-    latitude = json_data['latitude']
-    longitude = json_data['longitude']
+    # latitude = json_data['latitude']
+    # longitude = json_data['longitude']
+    monster_id = json_data['id']
     cursor = connection.cursor()
     # Remove the monster's location in the database
-    cursor.execute('DELETE FROM monsterloc WHERE lat = %s AND long = %s;', (float(latitude), float(longitude)))
+    cursor.execute('DELETE FROM monsterloc WHERE id = %s;', (int(monster_id),))
     response = {}
     # response['latitude'] = latitude
     # response['longitude'] = longitude
