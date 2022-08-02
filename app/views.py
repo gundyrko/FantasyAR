@@ -5,6 +5,9 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 import random
 import requests
+import threading
+
+data_lock = threading.Lock()
 
 # Create your views here.
 @csrf_exempt
@@ -20,6 +23,8 @@ def getlocs(request):
     rep_ok = False
 
     if request.method == 'POST':
+        data_lock.acquire()
+        check_num = random.randint(0, 3000)
         json_data = json.loads(request.body)
         user_latitude = float(json_data['latitude'])
         user_longitude = float(json_data['longitude'])
@@ -52,9 +57,9 @@ def getlocs(request):
                 new_monster = []
                 new_id = -1
                 for j in range(65536):
-                    if j not in id_list:
-                        id_list.append(j)
-                        new_id = j
+                    if j + check_num * 20 not in id_list:
+                        id_list.append(j + check_num * 20)
+                        new_id = j + check_num * 20
                         break
 
                 new_type = random.randint(0, num_type-1)
@@ -95,6 +100,7 @@ def getlocs(request):
                 new_monster.append(new_lat)
                 new_monster.append(new_long)
                 new_monster.append(new_type)
+                # new_monster.append(check_num)
                 chosen_monster.append(new_monster)
 
         response = {}
@@ -107,18 +113,23 @@ def getlocs(request):
         response['lower'] = lat_lower_bound
         response['upper'] = lat_upper_bound
         response['rep_ok'] = rep_ok
+        data_lock.release()
         # response['rep_text'] = rep_text
         return JsonResponse(response)
 
     elif request.method == 'GET':
         # Get all monsters' locations from database
+        data_lock.acquire()
         cursor = connection.cursor()
         cursor.execute('SELECT * FROM monsterloc;')
         rows = cursor.fetchall()
         response = {}
         response['monsterloc'] = rows
+        data_lock.release()
         return JsonResponse(response)
     else:
+        data_lock.acquire()
+        data_lock.release()
         return HttpResponse(status=404)
 
 
@@ -126,6 +137,7 @@ def getlocs(request):
 def removeloc(request):
     if request.method != 'POST':
         return HttpResponse(status=404)
+    data_lock.acquire()
     json_data = json.loads(request.body)
     # latitude = json_data['latitude']
     # longitude = json_data['longitude']
@@ -133,6 +145,7 @@ def removeloc(request):
     cursor = connection.cursor()
     # Remove the monster's location in the database
     cursor.execute('DELETE FROM monsterloc WHERE id = %s;', (int(monster_id),))
+    data_lock.release()
     response = {}
     # response['latitude'] = latitude
     # response['longitude'] = longitude
@@ -142,6 +155,7 @@ def removeloc(request):
 def addloc(request):
     if request.method != 'POST':
         return HttpResponse(status=404)
+    data_lock.acquire()
     json_data = json.loads(request.body)
     latitude = json_data['latitude']
     longitude = json_data['longitude']
@@ -150,6 +164,7 @@ def addloc(request):
     cursor.execute('INSERT INTO monsterloc (lat, long) VALUES '
                    '(%s, %s);', (float(latitude), float(longitude)))
     response = {}
+    data_lock.release()
     # response['latitude'] = latitude
     # response['longitude'] = longitude
     return JsonResponse(response)
