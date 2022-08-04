@@ -159,12 +159,15 @@ def addloc(request):
     json_data = json.loads(request.body)
     latitude = json_data['latitude']
     longitude = json_data['longitude']
+    monster_id = json_data['id']
+    monster_type = json_data['type']
     cursor = connection.cursor()
     # Add the monster's location in the database
-    cursor.execute('INSERT INTO monsterloc (lat, long) VALUES '
-                   '(%s, %s);', (float(latitude), float(longitude)))
+    cursor.execute('INSERT INTO monsterloc (id, lat, long, type) VALUES '
+                   '(%s, %s, %s, %s);', (int(monster_id), float(latitude), float(longitude), int(monster_type)))
     response = {}
     data_lock.release()
     # response['latitude'] = latitude
-    # response['longitude'] = longitude
+    response['id'] = int(monster_id)
     return JsonResponse(response)
+
