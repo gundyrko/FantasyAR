@@ -180,10 +180,12 @@ Name: Zesheng Yu
 Contribution:
 
 - Set up the back-end server and the database for monsters' information
-- Implement the API for random generating reasonable monsters within the neighbor of user's location
-- Implement the API for removing monsters from database when the battling is ended
-- Communicate with front-end to place monster at specific places
-
+- Implement the API for generating reasonable monsters within the neighbor of user's location
+- Implement the API for removing monsters from database
+- Implement the API for adding monsters into database
+- Organize the back-end server to avoid the potential problem due to concurrent requests.
+- Communicate with front-end to place monsters at specific places
+- Communicate with front-end to remove monster at the specific place when it is defeated in non-practice mode
 
 
 Name: Yanjun Chen
@@ -202,17 +204,11 @@ Name: Zhongqian Duan
 Contribution:
 
 - Monster model / animation / moving AI
-
 - Skill effect (Fireball, Icelance, Unlimited Blade Works)
-
 - Gun system
-
 - Shop (buy new weapon or skills)
-
 - State (show owned and equipped items / change equipment)
-
 - Local archive (partial participation,  load it when the Shop and State scene starts)
-
 - Health and Damage system (partial participation, link damage to gun and skill)
 
   
