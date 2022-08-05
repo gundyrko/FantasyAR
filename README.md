@@ -174,7 +174,8 @@ Contribution:
 - Voice control of skills
 - Place a monster on the plane (partial participation, mainly debugging the instantiation of the monster)
 - Monster moving AI (partial participation, mainly debugging the monster navigation system)
-
+- Monster attacking (projectile, can be dodged)
+- Game over (player death)
 
 
 Name: Zesheng Yu
