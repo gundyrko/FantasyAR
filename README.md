@@ -19,10 +19,10 @@
 
 #### Third-party SDK
 
-|    **Libraries**    | **Version** |                       **Description**                        | Link                                                         |
-| :-----------------: | :---------: | :----------------------------------------------------------: | :----------------------------------------------------------- |
+|    **Libraries**    | **Version** | **Description**                                              | Link                                                         |
+| :-----------------: | :---------: | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Unity AR Foundation |   4.1.10    | Present an interface for Unity developers to use AR features | https://unity.com/unity/features/ar                          |
-|        GoMap        |    3.7.1    |  A dynamic map SDK for making location-based games in Unity  | https://assetstore.unity.com/packages/tools/integration/go-map-3d-map-for-ar-gaming-68889 |
+|        GoMap        |    3.7.1    | A dynamic map SDK for making location-based games in Unity   | https://assetstore.unity.com/packages/tools/integration/go-map-3d-map-for-ar-gaming-68889 |
 |    Recognissimo     |    1.3.1    | A cross-platform offline speech recognition plugin for Unity | https://assetstore.unity.com/packages/tools/audio/recognissimo-cross-platform-offline-speech-recognition-203101 |
 
 
