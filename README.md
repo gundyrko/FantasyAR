@@ -1,21 +1,16 @@
 ## VE441 Team: FantasyAR
 
-|                          Gradesheet                          |                          Team Info                           |                             Demo                             |                             Wiki                             |                            Trello                            |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| [<img src="https://eecs441.eecs.umich.edu/img/admin/grades3.png">][grade_sheet] | [<img src="https://eecs441.eecs.umich.edu/img/admin/team.png">][team_contract] | [<img src="https://eecs441.eecs.umich.edu/img/admin/video.png">][demo_page] | [<img src="https://eecs441.eecs.umich.edu/img/admin/wiki.png">][wiki_page] | [<img src="https://eecs441.eecs.umich.edu/img/admin/trello.png">][process_page] |
-
-
-[grade_sheet]: https://docs.google.com/spreadsheets/d/1X3MaZ2m3UsdjcJARJQvdTjxElceTxeJx2uY92idq3xk/edit?usp=sharing
-[team_contract]: https://docs.google.com/document/d/1YL6lX2RmaLtHDfeRCVXXIFOjAGVMu9O5j3gxOPFHA2Y/edit?usp=sharing
-[demo_page]: https://www.youtube.com/watch?v=VIcOGEhsXGM&feature=youtu.be
-[wiki_page]: https://github.com/eecs441staff/441template/wiki
-[process_page]: https://trello.com/b/MyPhHMGd/441template
-
 
 
 ![cover](cover.png)
 
 ### Getting Started
+
+First, download _Google Play Service for AR_ from Google Play or Android app store, in order to ensure the AR function works properly.
+
+To set up the server, please refer to [VE441 Lab1](https://eecs441.eecs.umich.edu/ji-asns/lab1-chatter-backend#chatter-back-end).
+
+For the main project, please refer to the [Plastic SCM repo](https://www.plasticscm.com/orgs/gundyrko/repos/FantasyAR/branch/main/tree). You can simply download the code and assets, there's no need to install extra libraries manually. Nevertheless, we still list the third-party SDKs below.
 
 #### Third-party SDK
 
@@ -37,6 +32,8 @@ The following pictures shows our story map.
 
 ![story_map2](story_map2.png)
 
+In summary, a user will first see a 3D map that shows his/her location and the locations of nearby monsters. He/she can view the status and buy/change skills and weapons to prepare for the battle. During the battle, the user can move around to shoot and use voice-controlled skills. In the meantime, the monster will chase and attack the user. Once the monster is defeated, the user gains experience and money.
+
 #### Block Diagram
 
 The following picture is our engine architecture.
@@ -45,17 +42,16 @@ The following picture is our engine architecture.
 
 We use Unity as our game engine.  Firstly, the front end provides the user location to the unity. With that information, unity can display the map and user avatar with the GO Map. Secondly, the front end provides the voice input, then Recognissimo will transfer it into a string in unity that acts as skill commands. Finally, the back end provides the enemy location to the unity, and with the scene captured by the phone's camera, AR Foundation will generate a game scene with the enemy in the real-time scene.
 
-
-
-### APIs and Controller
-
-GO Map, AR Foundation, and Recognissimo are downloaded from the unity asset store. They are packed perfectly and can communicate with the unity game engine automatically.
+GO Map and Recognissimo are downloaded from the unity asset store, while ARFoundation is a built-in package of Unity. They are packed perfectly and can communicate with the unity game engine automatically.
 
 1. The first third-party API is GO Map. It can display the map in the real world based on user location, similar to Google Maps but with a game-style look. It will serve as a minimap that indicates to the player where the enemy or new missions are. The input for GO Map is the user location provided by GPS, the output is the minimap as well as the player avatar in the unity engine.
 
 2. The second API is AR Foundation. It can display AR models at specific locations as if the model is live in the scene captured by the camera. The input is the location of the monster in the real world, the output is to instantiate a monster model at that point in the unity engine.
 
 3. The third API is Recognissimo, which is used for voice recognition. With the voice input by the user, it can convert the input into strings in unity. And then, skill commands in the game will be activated accordingly. The input is the user's voice, and the output is a string type to the unity engine.
+
+
+### APIs and Controller
 
 The APIs used in the backend are shown below:
 
@@ -119,6 +115,11 @@ This function is used to get the skills that the player has mastered.
 The overview of UI/UX. It includes four major parts: Start game and view map, AR battle, Practice mode and Change weapons and skills.
 
 ![UI overview](UI_overview.png)
+
+The player will first enter the game and then the player will be able to see the Main Map. When a player is close to one of the monsters. He can enter the battle with that monster by tapping on the monster icon on the map. During the battle, if the monster is successfully defeated, then the player will get experience and money.
+
+The player can also choose to enter the practice mode, which allows the player to manually place a monster on any detected planes, so that the player do not have to go to a specific location to fight with the monster. However, the player will not gain any experience or money in the practice mode. Also, the player can view his level and money, and change his weapons and skills by tapping on the status button.
+
 
 #### Start game and view map
 
