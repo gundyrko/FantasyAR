@@ -202,11 +202,17 @@ Contribution:
 
 - Monster model / animation / moving AI
 
-- Skill effect (Fireball and icelance)
+- Skill effect (Fireball, Icelance, Unlimited Blade Works)
 
 - Gun system
 
-- Health and Damage system (partial participation, link damage to skill and gun)
+- Shop (buy new weapon or skills)
+
+- State (show owned and equipped items / change equipment)
+
+- Local archive (partial participation,  load it when the Shop and State scene starts)
+
+- Health and Damage system (partial participation, link damage to gun and skill)
 
   
 
