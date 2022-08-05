@@ -17,17 +17,13 @@
 
 ### Getting Started
 
-#### List of front-end and back-end dependencies
+#### Third-party SDK
 
-| Name                | Link                                                         |
-| ------------------- | ------------------------------------------------------------ |
-| Unity AR Foundation | https://unity.com/unity/features/ar                          |
-| GoMap               | https://assetstore.unity.com/packages/tools/integration/go-map-3d-map-for-ar-gaming-68889 |
-| AR+GPS location     | https://assetstore.unity.com/packages/tools/integration/ar-gps-location-134882 |
-| Recognissimo        | https://assetstore.unity.com/packages/tools/audio/recognissimo-cross-platform-offline-speech-recognition-203101 |
-| Nginx               | https://www.nginx.com/                                       |
-| Django              | https://www.djangoproject.com/                               |
-| Gunicorn            | https://gunicorn.org/                                        |
+|    **Libraries**    | **Version** |                       **Description**                        | Link                                                         |
+| :-----------------: | :---------: | :----------------------------------------------------------: | :----------------------------------------------------------- |
+| Unity AR Foundation |   4.1.10    | Present an interface for Unity developers to use AR features | https://unity.com/unity/features/ar                          |
+|        GoMap        |    3.7.1    |  A dynamic map SDK for making location-based games in Unity  | https://assetstore.unity.com/packages/tools/integration/go-map-3d-map-for-ar-gaming-68889 |
+|    Recognissimo     |    1.3.1    | A cross-platform offline speech recognition plugin for Unity | https://assetstore.unity.com/packages/tools/audio/recognissimo-cross-platform-offline-speech-recognition-203101 |
 
 
 
