@@ -224,8 +224,9 @@ Contribution:
 - Monster placement on a plane in the practice mode (creation of AR session and plane detection)
 - Player shooting (partial participation, mainly interaction with game loop control)
 - Monster health system
-- Practice mode game loop
+- Practice / Battle mode game loop
 - Graphical User Interface (buttons and success screen)
+- Save and load system
 
 **Note: Only the backend code is pushed to github. Code for other features are on Plastic SCM.**
 
